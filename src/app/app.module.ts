@@ -34,6 +34,21 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Facebook } from '@ionic-native/facebook'
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCwHvcqP4cgmlOQ9OZMiK8TamHmeAwlLI0",
+  authDomain: "heysmile-e384f.firebaseapp.com",
+  databaseURL: "https://heysmile-e384f.firebaseio.com",
+  projectId: "heysmile-e384f",
+  storageBucket: "heysmile-e384f.appspot.com",
+  messagingSenderId: "641760960705"
+};
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function HttpLoaderFactory(http: Http) {
@@ -84,7 +99,10 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -112,6 +130,7 @@ export function provideSettings(storage: Storage) {
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    Facebook,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

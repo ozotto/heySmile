@@ -6,7 +6,6 @@ import { User } from '../../providers/user';
 
 import { TranslateService } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html'

@@ -3,6 +3,14 @@ import { NavController } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
+import { MainPage } from '../../pages/pages';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
+import { Platform } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -16,7 +24,55 @@ import { SignupPage } from '../signup/signup';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController) { }
+	items: FirebaseListObservable<any[]>;
+  displayName; 
+
+  constructor(public navCtrl: NavController, afDB: AngularFireDatabase,
+    private afAuth: AngularFireAuth, private fb: Facebook, private platform: Platform) { 
+  	/*this.items = afDB.list('/podium');
+    console.log(this.items)*/
+    /*afAuth.authState.subscribe(user => {
+      if (!user) {
+        this.displayName = null;        
+        return;
+      }
+      this.displayName = user.displayName;      
+    });*/
+    afAuth.authState.subscribe((user: firebase.User) => {
+      if (!user) {
+        this.displayName = null;
+        return;
+      }else{
+        this.displayName = user.displayName;
+        this.navCtrl.push(MainPage);
+      }
+            
+    });
+  }
+
+  signInWithFacebook() {
+    if (this.platform.is('cordova')) {
+      return this.fb.login(['email', 'public_profile']).then(res => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+        return firebase.auth().signInWithCredential(facebookCredential);
+      })
+    }
+    else {
+      return this.afAuth.auth
+        .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then(res => console.log(res));
+    }
+  }
+
+/*  signInWithFacebook() {
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res => console.log(res));
+  }*/
+
+  signOut() {
+    this.afAuth.auth.signOut();
+  }
 
   login() {
     this.navCtrl.push(LoginPage);
@@ -25,4 +81,5 @@ export class WelcomePage {
   signup() {
     this.navCtrl.push(SignupPage);
   }
+
 }

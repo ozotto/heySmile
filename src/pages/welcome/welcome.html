@@ -4,10 +4,19 @@
     <div class="splash-logo"></div>
     <div class="splash-intro">
       {{ 'WELCOME_INTRO' | translate }}
+       <h1>Hello {{displayName}}</h1>  
+<!--      vamos
+      <button ion-button outline (click)="signInWithFacebook()">Login</button>  
+    <button ion-button outline (click)="signOut()">Logout</button> -->
     </div>
   </div>
+<!--   <ion-item class="text" *ngFor="let item of items | async">
+    {{item.name.first}}
+  </ion-item> -->
   <div padding>
-    <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+    <!-- <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button> -->
+    <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
+    <button ion-button block (click)="signInWithFacebook()" class="login">{{ 'LOGIN' | translate }}</button>
+    <button ion-button block (click)="signOut()" class="signup">{{ 'SIGNOUT' | translate }}</button>
   </div>
 </ion-content>

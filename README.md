@@ -64,3 +64,8 @@ To add new languages, add new files to the `src/assets/i18n` directory, followin
 ### Changing the Language
 
 To change the language of the app, edit `src/app/app.component.ts` and modify `translate.use('en')` to use the LANGCODE from `src/assets/i18n/`
+
+### Source Firebase angularfire2
+All tutorial [link](https://github.com/angular/angularfire2)
+Angularfire2 with ionic [link](https://github.com/angular/angularfire2/blob/master/docs/Auth-with-Ionic3-Angular4.md)
+
