@@ -13,11 +13,11 @@
 
   "MAP_TITLE": "Carte",
 
-  "TUTORIAL_SLIDE1_TITLE": "Bienvenue dans le kit de démarrage Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>Ionic Super Starter</b> est un kit complet pour démarrer sur Ionic. Il repose sur les meilleures pratiques et implémente de nombreux types de pages.",
+  "TUTORIAL_SLIDE1_TITLE": "Bienvenue sur Hey, Smile!",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Inscris-toi et amuse-toi avec nous !",
 
-  "TUTORIAL_SLIDE2_TITLE": "Comment utiliser le Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemblez les types de pages désirés et supprimez les autres. Le kit inclut plusieurs mises en page courantes d’applications mobiles, comme les pages de connexion et d’inscription, les onglets et cette page de tutoriel.",
+  "TUTORIAL_SLIDE2_TITLE": "Comment ça marche ?",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Poste tes blagues (texte, photos, videos….), évalue « j’ai ri » (icône applaudissements) ou « même pas souri » (tomate) « inacceptable » (icône bombe) les blagues des autres participants et gagne ! A la fin de chaque mois, la personne qui aura posté la blague la plus populaire se verra remettre un prix (valeur moyenne CHF 100). ",
 
   "TUTORIAL_SLIDE3_TITLE": "Pour commencer",
   "TUTORIAL_SLIDE3_DESCRIPTION": "Si vous avez besoin d’aide, consultez le README du Super Starter pour un tutoriel complet.",
