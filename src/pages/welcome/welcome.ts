@@ -43,6 +43,9 @@ export class WelcomePage {
         this.displayName = null;
         return;
       }else{
+        console.log(user)
+        console.log(user.photoURL)
+
         this.displayName = user.displayName;
         this.navCtrl.push(MainPage);
       }

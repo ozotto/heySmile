@@ -8,6 +8,8 @@ import { Items } from '../../providers/providers';
 
 import { Item } from '../../models/item';
 
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'page-list-master',
   templateUrl: 'list-master.html'
@@ -15,8 +17,13 @@ import { Item } from '../../models/item';
 export class ListMasterPage {
   currentItems: Item[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
+  smiles: FirebaseListObservable<any[]>;
+  smile: FirebaseObjectObservable<any>;
+
+  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, 
+    public afDB: AngularFireDatabase) {
     this.currentItems = this.items.query();
+    this.smiles = afDB.list('/podium');
   }
 
   /**
