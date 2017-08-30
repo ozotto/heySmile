@@ -16,94 +16,39 @@
 
   <ion-list>
 
-    <ion-card *ngFor="let item of smiles | async">
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img [src]="item.picture.thumbnail">
-      </ion-avatar>
-      <h2>{{ item.name.first }} {{ item.name.last }}</h2>
-    </ion-item>
-
-  </ion-card>
-
-    <ion-card *ngFor="let item of currentItems">
+    <ion-card *ngFor="let smile of smiles | async">
       <ion-item>
         <ion-avatar item-start>
-          <img [src]="item.profilePic">
+          <img [src]="smile.user.photo">
         </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
+        <h2>{{smile.user.displayName}}</h2>
+        <!-- <p>{{smile.date}}</p> -->
       </ion-item>
 
-      <img [src]="item.profilePic">
-
-<!--       <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-      </ion-card-content> -->
+      <img [src]="smile.picture">
 
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+            <div>{{smile.likes}} Bonne blague</div>
           </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-left clear small>
              <ion-icon name="thumbs-down"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{smile.unlikes}} Mauvais blague</div>
           </button>
         </ion-col>
         <ion-col center text-center>
           <button ion-button icon-left clear small>
             <ion-icon name="nuclear"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{smile.danger}} Danger</div>
           </button>
         </ion-col>
       </ion-row>
 
     </ion-card>
 
-    <!-- <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.profilePic" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-      </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> -->
   </ion-list>
 </ion-content>
-
-<!-- <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item >
-        Home
-      </button>
-      <button ion-item >
-        Friends
-      </button>
-      <button ion-item >
-        Events
-      </button>
-      <button ion-item >
-        Close Menu
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu> -->

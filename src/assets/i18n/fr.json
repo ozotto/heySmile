@@ -7,7 +7,7 @@
   "SIGNOUT": "Déconnexion",
 
 
-  "TAB1_TITLE": "Items",
+  "TAB1_TITLE": "Accueil",
   "TAB2_TITLE": "Recherche",
   "TAB3_TITLE": "Paramètres",
 
@@ -41,8 +41,8 @@
 
   "LIST_MASTER_TITLE": "Hey, Smile!",
 
-  "ITEM_CREATE_TITLE": "Nouvel item",
-  "ITEM_CREATE_CHOOSE_IMAGE": "Ajouter une image",
+  "ITEM_CREATE_TITLE": "Nouvelle blague",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Ajouter une blague",
 
   "CARDS_TITLE": "Social",
 

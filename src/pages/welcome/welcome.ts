@@ -12,6 +12,10 @@ import * as firebase from 'firebase/app';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 
+import { Storage } from '@ionic/storage';
+import { UserService } from '../../app/UserService';
+
+
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -28,7 +32,8 @@ export class WelcomePage {
   displayName; 
 
   constructor(public navCtrl: NavController, afDB: AngularFireDatabase,
-    private afAuth: AngularFireAuth, private fb: Facebook, private platform: Platform) { 
+    private afAuth: AngularFireAuth, private fb: Facebook, private platform: Platform, private storage: Storage, 
+    UserStore:UserService) { 
   	/*this.items = afDB.list('/podium');
     console.log(this.items)*/
     /*afAuth.authState.subscribe(user => {
@@ -38,11 +43,18 @@ export class WelcomePage {
       }
       this.displayName = user.displayName;      
     });*/
+    
     afAuth.authState.subscribe((user: firebase.User) => {
       if (!user) {
         this.displayName = null;
         return;
       }else{
+/*        storage.set('user', user);
+        storage.get('user').then((val) => {
+          console.log('Your age is', val);
+        });*/
+        UserStore.loginState = true
+        UserStore.userFacebook = user
         console.log(user)
         console.log(user.photoURL)
 

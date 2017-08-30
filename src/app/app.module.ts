@@ -41,6 +41,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook'
 
 
+import { UserService } from './UserService'
+
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCwHvcqP4cgmlOQ9OZMiK8TamHmeAwlLI0",
   authDomain: "heysmile-e384f.firebaseapp.com",
@@ -134,6 +137,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Facebook,
+    UserService,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

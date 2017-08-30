@@ -9,6 +9,7 @@ import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { UserService } from '../../app/UserService';
 
 @Component({
   selector: 'page-list-master',
@@ -19,11 +20,17 @@ export class ListMasterPage {
 
   smiles: FirebaseListObservable<any[]>;
   smile: FirebaseObjectObservable<any>;
+  itemTest
+  user
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, 
-    public afDB: AngularFireDatabase) {
+    public afDB: AngularFireDatabase, UserStore:UserService) {
+    console.log(UserStore.loginState)
+    console.log(UserStore.userFacebook)
+
     this.currentItems = this.items.query();
-    this.smiles = afDB.list('/podium');
+    this.smiles = afDB.list('/smiles');
+    this.user = UserStore
   }
 
   /**
@@ -40,7 +47,21 @@ export class ListMasterPage {
     let addModal = this.modalCtrl.create(ItemCreatePage);
     addModal.onDidDismiss(item => {
       if (item) {
-        this.items.add(item);
+        console.log("value")
+        console.log(item)
+        console.log(this.smiles)
+     
+        this.smiles.push({ 
+          user: {displayName: this.user.userFacebook.displayName, photo: this.user.userFacebook.photoURL, email : this.user.userFacebook.email}, 
+          date: "28-08-2017",
+          picture : item.profilePic,
+          likes : 0,
+          unlikes : 0,
+          danger : 0
+        });
+     
+
+        /*this.items.add(item);*/
       }
     })
     addModal.present();
