@@ -29,21 +29,21 @@
 
       <ion-row>
         <ion-col>
-          <button ion-button icon-left clear small>
+          <button ion-button icon-left clear small (click)="addLikes(smile)">
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>{{smile.likes}} Bonne blague</div>
+            <div>{{smile.likes}} Bravo</div>
           </button>
         </ion-col>
         <ion-col>
-          <button ion-button icon-left clear small>
+          <button ion-button icon-left clear small (click)="addUnlikes(smile)">
              <ion-icon name="thumbs-down"></ion-icon>
-            <div>{{smile.unlikes}} Mauvais blague</div>
+            <div>{{smile.unlikes}} Bouh</div>
           </button>
         </ion-col>
         <ion-col center text-center>
-          <button ion-button icon-left clear small>
+          <button ion-button icon-left clear small (click)="addDanger(smile)">
             <ion-icon name="nuclear"></ion-icon>
-            <div>{{smile.danger}} Danger</div>
+            <div>{{smile.danger}} HS</div>
           </button>
         </ion-col>
       </ion-row>

@@ -22,6 +22,7 @@ export class ListMasterPage {
   smile: FirebaseObjectObservable<any>;
   itemTest
   user
+  store
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, 
     public afDB: AngularFireDatabase, UserStore:UserService) {
@@ -31,6 +32,8 @@ export class ListMasterPage {
     this.currentItems = this.items.query();
     this.smiles = afDB.list('/smiles');
     this.user = UserStore
+    this.store = afDB
+
   }
 
   /**
@@ -65,6 +68,24 @@ export class ListMasterPage {
       }
     })
     addModal.present();
+  }
+
+  addLikes(item){
+    let value = item.likes + 1
+    this.store.object('/smiles/' + item.$key)
+    .update({ likes: value });
+  }
+
+  addUnlikes(item){
+    let value = item.unlikes + 1
+    this.store.object('/smiles/' + item.$key)
+    .update({ unlikes: value });
+  }
+
+  addDanger(item){
+    let value = item.danger + 1
+    this.store.object('/smiles/' + item.$key)
+    .update({ danger: value });
   }
 
   /**
