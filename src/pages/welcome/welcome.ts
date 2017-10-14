@@ -7,6 +7,7 @@ import { SignupPage } from '../signup/signup';
 import { ConditionsPage } from '../conditions/conditions';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
@@ -29,11 +30,14 @@ import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 })
 export class WelcomePage {
 
-	items: FirebaseListObservable<any[]>;
+	users: FirebaseListObservable<any[]>;
   displayName; 
   loginForm: FormGroup;
   myForm: FormGroup;
   submitedForm;
+  msgPassword;
+  show_msgPassword;
+
   private myData: any;
 
   constructor(  public navCtrl: NavController, afDB: AngularFireDatabase,
@@ -42,56 +46,34 @@ export class WelcomePage {
                 private platform: Platform, 
                 private storage: Storage, UserStore:UserService, 
                 private builder: FormBuilder) { 
-  	/*this.items = afDB.list('/podium');
-    console.log(this.items)*/
-    /*afAuth.authState.subscribe(user => {
-      if (!user) {
-        this.displayName = null;        
-        return;
-      }
-      this.displayName = user.displayName;      
-    });*/
+  	
+    //Show msg form
     this.submitedForm = false;
+    this.show_msgPassword = false;
 
-    this.myForm = builder.group({
-      /*'subject': '',
-      'message': ''*/
-       'subject': ['', Validators.required],
-      'message': ['', Validators.required]
-    })
-
-    this.loginForm    = builder.group({
-         'email'        : ['', Validators.required],
-         'password'     : ['', Validators.required]
-      });
-
-    /*this.loginForm = builder.group({
-      'username': [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(5)])
-      ],
-      'password': [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(5)])
-      ]
-    });*/
-
+    //List User
+    this.users = afDB.list("/users")
+    afDB.list('/items', ref => ref.orderByChild('email').equalTo('ozotto@gmail.com'))
     
+
+    //Validate form
+    this.loginForm    = builder.group({
+       'email'        : ['', Validators.required],
+       'password'     : ['', Validators.required]
+    });
+    
+    //Auth
     afAuth.authState.subscribe((user: firebase.User) => {
       if (!user) {
         this.displayName = null;
         return;
       }else{
-/*        storage.set('user', user);
-        storage.get('user').then((val) => {
-          console.log('Your age is', val);
-        });*/
-        UserStore.loginState = true
-        UserStore.userFacebook = user
-        console.log(user)
-        console.log(user.photoURL)
 
-        this.displayName = user.displayName;
+        UserStore.loginState = true
+        UserStore.user = user
+        /*console.log(user)
+        console.log(user.photoURL)*/
+
         this.navCtrl.push(MainPage);
       }
             
@@ -99,21 +81,20 @@ export class WelcomePage {
 
   }
 
-  onSubmit(formData) {
+  login(formData) { 
     this.submitedForm = true;
+    var self = this;
     if(formData._status == "VALID"){
-      console.log('Form data is ', formData);
-      this.myData = formData;  
+      var email = formData._value.email;
+      var password = formData._value.password;
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+          /*console.log(error.message);*/
+          self.msgPassword = error.message;
+          self.show_msgPassword = true;
+         
+      })
     }
-  }
 
-  login() { 
-    var email = "myemail@email.com";
-    var password = "mypassword";
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-       console.log(error);
-       console.log(error);
-    })
   }
 
   signInWithFacebook() {
@@ -135,22 +116,18 @@ export class WelcomePage {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-/*  signInWithFacebook() {
-    this.afAuth.auth
-      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then(res => console.log(res));
-  }*/
-
   signOut() {
     this.afAuth.auth.signOut();
-  }
-
-  signup() {
-    this.navCtrl.push(SignupPage);
   }
 
   showConditions(){
      this.navCtrl.push(ConditionsPage); 
   }
+
+  /*  signInWithFacebook() {
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res => console.log(res));
+  }*/
 
 }

@@ -29,8 +29,8 @@ export class ListMasterPage {
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, 
     public afDB: AngularFireDatabase, UserStore:UserService, private afAuth: AngularFireAuth) {
-    console.log(UserStore.loginState)
-    console.log(UserStore.userFacebook)
+    /*console.log(UserStore.loginState)
+    console.log(UserStore.user)*/
 
     this.currentItems = this.items.query();
     this.smiles = afDB.list('/smiles');
@@ -53,12 +53,12 @@ export class ListMasterPage {
     let addModal = this.modalCtrl.create(ItemCreatePage);
     addModal.onDidDismiss(item => {
       if (item) {
-        console.log("value")
+        /*console.log("value")
         console.log(item)
-        console.log(this.smiles)
+        console.log(this.smiles)*/
      
         this.smiles.push({ 
-          user: {displayName: this.user.userFacebook.displayName, photo: this.user.userFacebook.photoURL, email : this.user.userFacebook.email}, 
+          user: {displayName: this.user.user.displayName, photo: this.user.user.photoURL, email : this.user.user.email}, 
           date: "28-08-2017",
           picture : item.profilePic,
           likes : 0,

@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content scroll="false">
-
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" novalidate>
       <ion-item>
           <ion-label floating>Email</ion-label>
           <ion-input type="email" formControlName="email" name="email"></ion-input>
@@ -18,6 +18,7 @@
           <ion-input type="password" formControlName="password" name="password"></ion-input>
       </ion-item>
       <p *ngIf="!loginForm.controls.password.valid && submitedForm" padding-left class="form-alert">{{ 'PASSWORD_EMPTY' | translate }}</p>
+      <p *ngIf="show_msgPassword" padding-left class="form-alert">{{ msgPassword }}</p>
 
       <ion-item>
         <ion-label>En creant un compte, j'accepte les <span class="msg-conditions" (click)="showConditions()"> conditions générales </span></ion-label>
@@ -29,10 +30,6 @@
   </form>
 
   <div padding>
-    <!-- <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button> -->
-    <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
-    <!-- <button ion-button block (click)="signInWithFacebook()" class="login">{{ 'LOGIN' | translate }}</button>
-    <button ion-button block (click)="signOut()" class="signup">{{ 'SIGNOUT' | translate }}</button> -->
     
     <button ion-button block icon-start class="btn_facebook" (click)="signInWithFacebook()">
         <ion-icon name='logo-facebook'></ion-icon>
@@ -45,20 +42,3 @@
     </button>
   </div>
 </ion-content>
-
-
-
-<!--   <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
-       <h1>Hello {{displayName}}</h1>  
-     
-      <button ion-button outline (click)="signInWithFacebook()">Login</button>  
-    <button ion-button outline (click)="signOut()">Logout</button>
-    </div>
-  </div> -->
-<!--   <ion-item class="text" *ngFor="let item of items | async">
-    {{item.name.first}}
-  </ion-item> -->
