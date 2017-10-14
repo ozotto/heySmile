@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { MainPage } from '../../pages/pages';
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
-import { MainPage } from '../../pages/pages';
+import { ConditionsPage } from '../conditions/conditions';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -95,6 +96,10 @@ export class WelcomePage {
 
   signup() {
     this.navCtrl.push(SignupPage);
+  }
+
+  showConditions(){
+     this.navCtrl.push(ConditionsPage); 
   }
 
 }

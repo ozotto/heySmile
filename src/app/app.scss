@@ -14,3 +14,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+button.btn_facebook, button.btn_facebook:hover {
+    background-color: #3b5998 !important;
+}
+
+button.btn_google, button.btn_google:hover{
+	background-color: #dd4b39 !important;
+}

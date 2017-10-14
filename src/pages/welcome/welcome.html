@@ -1,4 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Compte</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content scroll="false">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>En creant un compte, j'accepte les <span class="msg-conditions" (click)="showConditions()"> conditions générales </span></ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block>Create Account</button>
+  </div>
+
+  <div padding>
+    <!-- <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button> -->
+    <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
+    <!-- <button ion-button block (click)="signInWithFacebook()" class="login">{{ 'LOGIN' | translate }}</button>
+    <button ion-button block (click)="signOut()" class="signup">{{ 'SIGNOUT' | translate }}</button> -->
+    
+    <!-- continue avec -->
+    <button ion-button block icon-start class="btn_facebook">
+        <ion-icon name='logo-facebook'></ion-icon>
+        Login in with Facebook
+    </button>
+    <!-- <button ion-button block >Login in with Facebook</button> -->
+    <button ion-button block icon-start class="btn_google">
+        <ion-icon name='logo-googleplus'></ion-icon>
+        Login in with Google
+    </button>
+    
+    <!-- <button ion-button block class="login">{{ 'LOGIN' | translate }}</button> -->
+    <!-- <button ion-button block class="signup">{{ 'SIGNOUT' | translate }}</button> -->
+  </div>
+</ion-content>
+
+
+
 <!--   <div class="splash-bg"></div>
   <div class="splash-info">
     <div class="splash-logo"></div>
@@ -13,12 +61,3 @@
 <!--   <ion-item class="text" *ngFor="let item of items | async">
     {{item.name.first}}
   </ion-item> -->
-  <div padding>
-    <!-- <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button> -->
-    <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
-    <!-- <button ion-button block (click)="signInWithFacebook()" class="login">{{ 'LOGIN' | translate }}</button>
-    <button ion-button block (click)="signOut()" class="signup">{{ 'SIGNOUT' | translate }}</button> -->
-    <button ion-button block class="login">{{ 'LOGIN' | translate }}</button>
-    <button ion-button block class="signup">{{ 'SIGNOUT' | translate }}</button>
-  </div>
-</ion-content>
