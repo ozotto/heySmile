@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
+import { WelcomePage } from '../welcome/welcome';
+
 import { ItemCreatePage } from '../item-create/item-create';
 import { ItemDetailPage } from '../item-detail/item-detail';
 
@@ -9,6 +11,7 @@ import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { UserService } from '../../app/UserService';
 
 @Component({
@@ -25,7 +28,7 @@ export class ListMasterPage {
   store
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, 
-    public afDB: AngularFireDatabase, UserStore:UserService) {
+    public afDB: AngularFireDatabase, UserStore:UserService, private afAuth: AngularFireAuth) {
     console.log(UserStore.loginState)
     console.log(UserStore.userFacebook)
 
@@ -103,4 +106,10 @@ export class ListMasterPage {
       item: item
     });
   }
+  
+  signOut() {
+    this.afAuth.auth.signOut();
+    this.navCtrl.push(WelcomePage);
+  }
+
 }

@@ -36,7 +36,7 @@ export class TutorialPage {
       "TUTORIAL_SLIDE3_DESCRIPTION",*/
     ]).subscribe(
       (values) => {
-        console.log('Loaded values', values);
+        /*console.log('Loaded values', values);*/
         this.slides = [
           {
             image: 'assets/img/heySmile.png',

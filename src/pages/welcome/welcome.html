@@ -1,27 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Compte</ion-title>
+    <ion-title>{{ 'ACCOUNT' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content scroll="false">
 
-  <ion-list>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+      <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email" name="email"></ion-input>
+      </ion-item>
+      <p *ngIf="!loginForm.controls.email.valid && submitedForm" padding-left class="form-alert">{{ 'EMAIL_EMPTY' | translate }}</p>
+      
+      <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" formControlName="password" name="password"></ion-input>
+      </ion-item>
+      <p *ngIf="!loginForm.controls.password.valid && submitedForm" padding-left class="form-alert">{{ 'PASSWORD_EMPTY' | translate }}</p>
 
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>En creant un compte, j'accepte les <span class="msg-conditions" (click)="showConditions()"> conditions générales </span></ion-label>
-    </ion-item>
-
-  </ion-list>
-
-  <div padding>
-    <button ion-button color="primary" block>Create Account</button>
-  </div>
+      <ion-item>
+        <ion-label>En creant un compte, j'accepte les <span class="msg-conditions" (click)="showConditions()"> conditions générales </span></ion-label>
+      </ion-item>
+    
+      <div padding>
+        <button ion-button color="primary" block >{{ 'CREATE_ACCOUNT' | translate }}</button>
+      </div>
+  </form>
 
   <div padding>
     <!-- <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button> -->
@@ -29,19 +34,15 @@
     <!-- <button ion-button block (click)="signInWithFacebook()" class="login">{{ 'LOGIN' | translate }}</button>
     <button ion-button block (click)="signOut()" class="signup">{{ 'SIGNOUT' | translate }}</button> -->
     
-    <!-- continue avec -->
-    <button ion-button block icon-start class="btn_facebook">
+    <button ion-button block icon-start class="btn_facebook" (click)="signInWithFacebook()">
         <ion-icon name='logo-facebook'></ion-icon>
-        Login in with Facebook
-    </button>
-    <!-- <button ion-button block >Login in with Facebook</button> -->
-    <button ion-button block icon-start class="btn_google">
-        <ion-icon name='logo-googleplus'></ion-icon>
-        Login in with Google
+        {{ 'LOGIN_FACEBOOK' | translate }}
     </button>
     
-    <!-- <button ion-button block class="login">{{ 'LOGIN' | translate }}</button> -->
-    <!-- <button ion-button block class="signup">{{ 'SIGNOUT' | translate }}</button> -->
+    <button ion-button block icon-start class="btn_google" (click)="sigInGoogle()">
+        <ion-icon name='logo-googleplus'></ion-icon>
+        {{ 'LOGIN_GOOGLE' | translate }}
+    </button>
   </div>
 </ion-content>
 

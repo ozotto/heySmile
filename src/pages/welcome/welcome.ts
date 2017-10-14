@@ -16,7 +16,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { Storage } from '@ionic/storage';
 import { UserService } from '../../app/UserService';
 
-
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -31,10 +31,17 @@ export class WelcomePage {
 
 	items: FirebaseListObservable<any[]>;
   displayName; 
+  loginForm: FormGroup;
+  myForm: FormGroup;
+  submitedForm;
+  private myData: any;
 
-  constructor(public navCtrl: NavController, afDB: AngularFireDatabase,
-    private afAuth: AngularFireAuth, private fb: Facebook, private platform: Platform, private storage: Storage, 
-    UserStore:UserService) { 
+  constructor(  public navCtrl: NavController, afDB: AngularFireDatabase,
+                private afAuth: AngularFireAuth, 
+                private fb: Facebook, 
+                private platform: Platform, 
+                private storage: Storage, UserStore:UserService, 
+                private builder: FormBuilder) { 
   	/*this.items = afDB.list('/podium');
     console.log(this.items)*/
     /*afAuth.authState.subscribe(user => {
@@ -44,6 +51,31 @@ export class WelcomePage {
       }
       this.displayName = user.displayName;      
     });*/
+    this.submitedForm = false;
+
+    this.myForm = builder.group({
+      /*'subject': '',
+      'message': ''*/
+       'subject': ['', Validators.required],
+      'message': ['', Validators.required]
+    })
+
+    this.loginForm    = builder.group({
+         'email'        : ['', Validators.required],
+         'password'     : ['', Validators.required]
+      });
+
+    /*this.loginForm = builder.group({
+      'username': [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(5)])
+      ],
+      'password': [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(5)])
+      ]
+    });*/
+
     
     afAuth.authState.subscribe((user: firebase.User) => {
       if (!user) {
@@ -64,6 +96,24 @@ export class WelcomePage {
       }
             
     });
+
+  }
+
+  onSubmit(formData) {
+    this.submitedForm = true;
+    if(formData._status == "VALID"){
+      console.log('Form data is ', formData);
+      this.myData = formData;  
+    }
+  }
+
+  login() { 
+    var email = "myemail@email.com";
+    var password = "mypassword";
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+       console.log(error);
+       console.log(error);
+    })
   }
 
   signInWithFacebook() {
@@ -80,6 +130,11 @@ export class WelcomePage {
     }
   }
 
+  sigInGoogle(){
+    console.log("google")
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
 /*  signInWithFacebook() {
     this.afAuth.auth
       .signInWithPopup(new firebase.auth.FacebookAuthProvider())
@@ -88,10 +143,6 @@ export class WelcomePage {
 
   signOut() {
     this.afAuth.auth.signOut();
-  }
-
-  login() {
-    this.navCtrl.push(LoginPage);
   }
 
   signup() {
