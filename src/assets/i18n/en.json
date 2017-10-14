@@ -37,6 +37,11 @@
 
   "WELCOME_INTRO" : "The starting point for your next great Ionic app",
 
+  "CONDITIONS_TITLE" : "Terms and conditions",
+  "CONDITIONS_DESC1" : "On est là pour rigoler : souviens-toi qu’on peut rire de tout, mais pas avec tout le monde ! ",
+  "CONDITIONS_DESC2_PART1" : "Alors, en t’inscrivant sur ",
+  "CONDITIONS_DESC2_PART2" : ", tu t’engages à :",
+
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",
   "SETTINGS_OPTION2": "Option 2",

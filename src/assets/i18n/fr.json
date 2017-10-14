@@ -37,6 +37,16 @@
 
   "WELCOME_TITLE": "Bienvenue",
 
+  "CONDITIONS_TITLE" : "Conditions générales",
+  "CONDITIONS_DESC1" : "On est là pour rigoler : souviens-toi qu’on peut rire de tout, mais pas avec tout le monde ! ",
+  "CONDITIONS_DESC2_PART1" : "Alors, en t’inscrivant sur ",
+  "CONDITIONS_DESC2_PART2" : ", tu t’engages à :",
+  "CONDITIONS1" : "accepter que les administrateurs de l’app ont toute autorité pour effacer une blague postée s’ils pensent qu’elle est de nature à choquer les autres participants",
+  "CONDITIONS2" : "accepter que les administrateurs de l’app rejettent ton profil si tu ne te respecte pas le point ci-dessus",
+  "CONDITIONS3" : "à faire en sorte que tes posts ne portent pas atteinte à la personnalité ou à la réputation de tierces personnes",
+  "CONDITIONS4" : "Si tu es l’heureux gagnant de l’un de de nos prix, communiquer ton adresse postale afin que le prix puisse t’être remis",
+
+
   "LOGIN_TITLE": "Connexion",
   "LOGIN_ERROR": "Connexion impossible. Veuillez vérifier les informations de votre compte et réessayer.",
   "LOGIN_BUTTON": "Connexion",

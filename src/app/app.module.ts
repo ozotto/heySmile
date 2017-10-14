@@ -7,6 +7,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
 import { CardsPage } from '../pages/cards/cards';
+import { ConditionsPage } from '../pages/conditions/conditions';
 import { ContentPage } from '../pages/content/content';
 import { ItemCreatePage } from '../pages/item-create/item-create';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
@@ -77,6 +78,7 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     CardsPage,
+    ConditionsPage,
     ContentPage,
     ItemCreatePage,
     ItemDetailPage,
@@ -112,6 +114,7 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     CardsPage,
+    ConditionsPage,
     ContentPage,
     ItemCreatePage,
     ItemDetailPage,

@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CardsPage } from '../pages/cards/cards';
+import { ConditionsPage } from '../pages/conditions/conditions';
 import { ContentPage } from '../pages/content/content';
 import { FirstRunPage } from '../pages/pages';
 import { ListMasterPage } from '../pages/list-master/list-master';
@@ -35,6 +36,7 @@ export class MyApp {
     { title: 'Welcome', component: WelcomePage },
     { title: 'Tabs', component: TabsPage },
     { title: 'Cards', component: CardsPage },
+    { title: 'Conditions', component: ConditionsPage },
     { title: 'Content', component: ContentPage },
     { title: 'Login', component: LoginPage },
     { title: 'Signup', component: SignupPage },
