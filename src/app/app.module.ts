@@ -40,7 +40,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook'
 
-
 import { UserService } from './UserService'
 
 
