@@ -12,9 +12,38 @@
       <img [src]="slide.image" class="slide-image" />
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
+      <p [innerHTML]="slide.actions"></p>
+      <p [innerHTML]="slide.prize"></p>
+      <button ion-button icon-end large clear (click)="startApp()">
+        <p style="font-weight: bold;" [innerHTML]="slide.inscription"></p>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+      
+      <!-- <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="content_img"> <img class="logo_desc" src="assets/img/icons/bravo.png" /> </ion-col>
+          <ion-col col-8 class="content_des"><p [innerHTML]="slide.like_it"></p></ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="content_img"> <img class="logo_desc" src="assets/img/icons/tomate.png" /> </ion-col>
+          <ion-col col-8 class="content_des"><p [innerHTML]="slide.not_like"></p></ion-col>
+        </ion-row>
+      </ion-grid>
+
+       <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="content_img"> <img class="logo_desc" src="assets/img/icons/bravo.png" /> </ion-col>
+          <ion-col col-8 class="content_des"><p [innerHTML]="slide.unacceptable"></p></ion-col>
+        </ion-row>
+      </ion-grid> -->
+      
+
     </ion-slide>
-    <ion-slide>
-      <!-- <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" /> -->
+    
+<!--     <ion-slide>
       <h2 class="slide-title">Conditions d’utilisation</h2>
       <p>On est là pour rigoler : souviens-toi qu’on peut rire de tout, mais pas avec tout le monde ! </p>
       <p>Alors, en t’inscrivant sur <b>Hey, Smile!</b>, tu t’engages à :</p>
@@ -42,15 +71,14 @@
 
       </ion-list>
 
-    </ion-slide>
-    <ion-slide>
+    </ion-slide> -->
+    <!-- <ion-slide>
       <img src="assets/img/heySmile.png" class="slide-image" />
-      <!-- <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2> -->
       <p>Voilà, c’est tout pour l’instant ! Alors.. inscris-toi et fais nous marrer ! </p>
       <button ion-button icon-end large clear (click)="startApp()">
         {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
-    </ion-slide>
+    </ion-slide> -->
   </ion-slides>
 </ion-content>

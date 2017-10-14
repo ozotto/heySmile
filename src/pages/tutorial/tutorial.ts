@@ -8,9 +8,12 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 export interface Slide {
+  image: string;
   title: string;
   description: string;
-  image: string;
+  actions : string;
+  prize : string;
+  inscription : string;
 }
 
 @Component({
@@ -23,25 +26,31 @@ export class TutorialPage {
 
   constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService) {
     translate.get(["TUTORIAL_SLIDE1_TITLE",
-      "TUTORIAL_SLIDE1_DESCRIPTION",
+      "TUTORIAL_SLIDE1_DESCRIPTION",  
+      "TUTORIAL_SLIDE1_ACTIONS",
+      "TUTORIAL_SLIDE1_PRIZE",
+      "TUTORIAL_SLIDE1_INSCRIPTION",
       "TUTORIAL_SLIDE2_TITLE",
       "TUTORIAL_SLIDE2_DESCRIPTION",
-      "TUTORIAL_SLIDE3_TITLE",
-      "TUTORIAL_SLIDE3_DESCRIPTION",
+      /*"TUTORIAL_SLIDE3_TITLE",
+      "TUTORIAL_SLIDE3_DESCRIPTION",*/
     ]).subscribe(
       (values) => {
         console.log('Loaded values', values);
         this.slides = [
           {
+            image: 'assets/img/heySmile.png',
             title: values.TUTORIAL_SLIDE1_TITLE,
             description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-            image: 'assets/img/heySmile.png',
+            actions : values.TUTORIAL_SLIDE1_ACTIONS,
+            prize : values.TUTORIAL_SLIDE1_PRIZE,
+            inscription : values.TUTORIAL_SLIDE1_INSCRIPTION,
           },
-          {
+/*          {
             title: values.TUTORIAL_SLIDE2_TITLE,
             description: values.TUTORIAL_SLIDE2_DESCRIPTION,
             image: 'assets/img/heySmile.png',
-          },
+          },*/
           /*{
             title: values.TUTORIAL_SLIDE3_TITLE,
             description: values.TUTORIAL_SLIDE3_DESCRIPTION,
