@@ -20,11 +20,11 @@
   "TUTORIAL_CONTINUE_BUTTON" : "Continue",
 
  "TUTORIAL_SLIDE1_TITLE": "Bienvenue sur Hey, Smile!",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "Poste tes blagues (texte, photos, videos….), évalue",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Poste tes blagues (texte, photos, videos….), évalue les blagues des autres participants et gagne ! ",
   "TUTORIAL_SLIDE1_LIKE_IT": "« j’ai ri »",
   "TUTORIAL_SLIDE1_NOT_LIKE": "« même pas souri »",
   "TUTORIAL_SLIDE1_UNACCEPTABLE": "« inacceptable »",
-  "TUTORIAL_SLIDE1_PRIZE": "les blagues des autres participants et gagne ! A la fin de chaque mois, la personne qui aura posté la blague la plus populaire se verra remettre un prix (valeur moyenne CHF 100).",
+  "TUTORIAL_SLIDE1_PRIZE": "A la fin de chaque mois, la personne qui aura posté la blague la plus populaire se verra remettre un prix (valeur moyenne CHF 100).",
   "TUTORIAL_SLIDE1_INSCRIPTION": "Inscris-toi et amuse-toi avec nous !",
 
   "TUTORIAL_SLIDE2_TITLE": "Comment ça marche ?",
