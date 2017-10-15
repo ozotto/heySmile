@@ -45,7 +45,7 @@ export class SettingsPage {
     private afAuth: AngularFireAuth) {
 
     this.afAuth.authState.subscribe(userAuth => {
-      console.log(userAuth)
+      /*console.log(userAuth)*/
       if(userAuth) this.user = userAuth
     })
 

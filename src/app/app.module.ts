@@ -15,6 +15,8 @@ import { ListMasterPage } from '../pages/list-master/list-master';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { MenuPage } from '../pages/menu/menu';
+import { PrizePage } from '../pages/prize/prize';
+import { PrizeCreatePage } from '../pages/prize-create/prize-create';
 import { SearchPage } from '../pages/search/search';
 import { SettingsPage } from '../pages/settings/settings';
 import { SignupPage } from '../pages/signup/signup';
@@ -81,11 +83,13 @@ export function provideSettings(storage: Storage) {
     ConditionsPage,
     ContentPage,
     ItemCreatePage,
+    PrizeCreatePage,
     ItemDetailPage,
     ListMasterPage,
     LoginPage,
     MapPage,
     MenuPage,
+    PrizePage,
     SearchPage,
     SettingsPage,
     SignupPage,
@@ -117,11 +121,13 @@ export function provideSettings(storage: Storage) {
     ConditionsPage,
     ContentPage,
     ItemCreatePage,
+    PrizeCreatePage,
     ItemDetailPage,
     ListMasterPage,
     LoginPage,
     MapPage,
     MenuPage,
+    PrizePage,
     SearchPage,
     SettingsPage,
     SignupPage,

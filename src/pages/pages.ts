@@ -1,4 +1,6 @@
 import { ListMasterPage } from './list-master/list-master';
+
+import { PrizePage } from './prize/prize';
 import { SearchPage } from './search/search';
 import { SettingsPage } from './settings/settings';
 import { TabsPage } from './tabs/tabs';
@@ -16,5 +18,5 @@ export const MainPage = TabsPage;
 // The initial root pages for our tabs (remove if not using tabs)
 export const Tab1Root = ListMasterPage;
 export const Tab2Root = SearchPage;
-export const Tab3Root = SettingsPage;
+export const Tab3Root = PrizePage;
 export const Tab4Root = SettingsPage;

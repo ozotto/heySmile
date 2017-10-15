@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'TAB3_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  
+    <button *ngIf="showAdd" ion-button icon-only (click)="addPrize()">
+        <ion-icon name="add"></ion-icon>
+    </button>
+
+    <ion-card *ngFor="let prize of prizes | async">
+      <img [src]="prize.picture">
+    
+      <ion-item>
+        <h2>{{prize.title}}</h2>
+        <p>{{prize.description}}</p>
+      </ion-item>
+
+    </ion-card>
+
+</ion-content>
