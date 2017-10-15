@@ -32,6 +32,7 @@
   "SETTINGS_OPTION3": "Option 3",
   "SETTINGS_OPTION4": "Option 4",
 
+  "PROFILE" : "Profil",
   "SETTINGS_PAGE_PROFILE": "Modifier le profil",
 
   "WELCOME_TITLE": "Bienvenue",
@@ -59,6 +60,7 @@
   "SIGNUP_TITLE": "Inscription",
   "SIGNUP_ERROR": "Inscription impossible. Veuillez vérifier les informations de votre compte et réessayer.",
   "SIGNUP_BUTTON": "Inscription",
+
 
   "LIST_MASTER_TITLE": "Hey, Smile!",
 

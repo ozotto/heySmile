@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Settings } from '../../providers/settings';
+import { WelcomePage } from '../welcome/welcome';
 
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -33,12 +35,20 @@ export class SettingsPage {
   pageTitle: string;
 
   subSettings: any = SettingsPage;
+  user: any;
 
   constructor(public navCtrl: NavController,
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    private afAuth: AngularFireAuth) {
+
+    this.afAuth.authState.subscribe(userAuth => {
+      console.log(userAuth)
+      if(userAuth) this.user = userAuth
+    })
+
   }
 
   _buildForm() {
@@ -92,4 +102,10 @@ export class SettingsPage {
   ngOnChanges() {
     console.log('Ng All Changes');
   }
+
+  signOut() {
+    this.afAuth.auth.signOut();
+    this.navCtrl.push(WelcomePage);
+  }
+
 }

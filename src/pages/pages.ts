@@ -1,7 +1,6 @@
 import { ListMasterPage } from './list-master/list-master';
 import { SearchPage } from './search/search';
 import { SettingsPage } from './settings/settings';
-import { MenuPage } from './menu/menu';
 import { TabsPage } from './tabs/tabs';
 import { HomePage } from './home/home';
 import { TutorialPage } from './tutorial/tutorial';
@@ -18,4 +17,4 @@ export const MainPage = TabsPage;
 export const Tab1Root = ListMasterPage;
 export const Tab2Root = SearchPage;
 export const Tab3Root = SettingsPage;
-export const Tab4Root = MenuPage;
+export const Tab4Root = SettingsPage;
